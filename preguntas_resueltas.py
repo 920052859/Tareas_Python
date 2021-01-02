@@ -251,6 +251,7 @@ DatosHoras[0][0]
 
 # Calcular el promedio del numero de horas de sol para cada
 # mes durante el periodo total (1929-2009),
+
 import calendar
 import datetime 
 dir(datetime)
@@ -262,7 +263,21 @@ calendar.month_name(1)
 # mydate.strftime("%B")
 
 {v: k for k,v in enumerate(calendar.month_abbr)}
-Mess={v: k for k,v in enumerate(calendar.month_abbr)}
+# Mess={v: k for k,v in enumerate(calendar.month_abbr)}
+
+# {'': 0,
+#  'Jan': 1,
+#  'Feb': 2,
+#  'Mar': 3,
+#  'Apr': 4,
+#  'May': 5,
+#  'Jun': 6,
+#  'Jul': 7,
+#  'Aug': 8,
+#  'Sep': 9,
+#  'Oct': 10,
+#  'Nov': 11,
+#  'Dec': 12}
 
 PromSol=list(range(0,12))
 
@@ -275,17 +290,54 @@ for j in range(0,12):
 for j in range(0,12):
         PromSol[j]=PromSol[j]/81
         
-Mes=list(range(1,13))
-        
-TotalMes=[Mess;PromSol]
+Meses01=[]
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+Mess=list(range(0,12))
+ 
+
+plt.title('Meses Vs Horas de sol')
+plt.xlabel('Meses')
+plt.ylabel('Horas de sol')
+plt.plot(Mess,PromSol)
+plt.grid(color='r', linestyle='dotted', linewidth=1)
+plt.show()      
+
+
+Mes={
+ 1: 'Jan',
+ 2: 'Febr',
+ 3: 'Marz',
+ 4: 'Apri',
+ 5: 'Mayo',
+ 6: 'Juny',
+ 7: 'July',
+ 8: 'Aug',
+ 9: 'Sep',
+ 10: 'Oct',
+ 11: 'Nov',
+ 12: 'Dec'}
+
+
 
 # Cual es el mes que tiene , en promedio, una mayor cantidad
 # de horas de sol.
+max=0
+MesMax=0
+for j in range(0,12):
+        if PromSol[j]>max:
+            max=PromSol[j]
+            MesMax=j+1
 
 
+MesMax=MesMax+1
+print("El mes con el mas horas %f : ")
+print(Mes[MesMax])
 
-
-
+# El mes con el mas horas %f : 
+# July
 
 
 #%%
