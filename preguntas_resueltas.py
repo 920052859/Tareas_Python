@@ -295,7 +295,7 @@ Meses01=[]
 import numpy as np
 import matplotlib.pyplot as plt
 
-Mess=list(range(0,12))
+Mess=list(range(1,13))
  
 
 plt.title('Meses Vs Horas de sol')
@@ -337,7 +337,34 @@ print("El mes con el mas horas %f : ")
 print(Mes[MesMax])
 
 # El mes con el mas horas %f : 
-# July
+################### => July
+import pandas as pd
+
+# Grafique un histograma para para cada uno de los meses.
+
+Colum = pd.DataFrame({'Meses':Mess,'PromedioHoras': PromSol})
+
+# import matplotlib.pyplot as plot
+
+# plot.hist(x=Mess,y=PromSol)
+# plt.axis([0, 6, 0, 6])
+# plt.show()
+
+
+
+###################### =>>>>>
+
+import matplotlib.pyplot as plt
+
+x = list(range(1,13))
+y = PromSol
+plt.title('Meses Vs Horas de sol')
+plt.bar(x,y,align='center')
+plt.xlabel('Mes')
+plt.ylabel('Horas Promedio por mes')
+for i in range(len(y)):
+    plt.hlines(y[i],0,x[i],colors='r',linestyles='-')
+plt.show()
 
 
 #%%
@@ -390,6 +417,7 @@ IntegFinal=list()
 for s in range(0,5):
     IntegFinal[s]=4*funcio1[s]+func+2*funcio2[s]
     print(3*IntegFinal[s]/2)
+    
 
 
 
