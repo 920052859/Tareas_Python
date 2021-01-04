@@ -394,7 +394,7 @@ import sympy as sp
 x = list(np.arange(0,sp.pi, 0.05))
 dir(x)
 help(x.size)
-funcionable= for a in np.arange(0,x.count)
+#funcionable= for a in np.arange(0,x.count)
 plt.plot(x,sp.sin(x)**3,'-r')
 plt.grid()
 plt.show()
@@ -453,21 +453,105 @@ for s in range(0,5):
 # =============================================================================
 # ############## PREGUNTA 5
 # =============================================================================
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
 
+#%%
+Datos =pd.read_csv("AmericaSur.csv",sep=',')# => con pandas automaticamente analiza la cabecera
+dir(Datos)
+type(Datos)
+# surveys_df['record_id'].dtype
 
-
+#Datos = np.loadtxt(fname="AmericaSur.csv",delimiter=",")
+# Data=np.genfromtxt(fname=cc"AmericaSur.csv", dtype = np.int64,
+#                            delimiter=",")
+ # dir(np.loadtxt
+help(np.genfromtxt)
 # https://raw.githubusercontent.com/robintux/
-# Datasets4StackOverFlowQuestions/master/AmericaSur.csv
+# Datasets4StackOverFlowQuestions/master/AmericaSur.csvccccccccccccccccccccccccccccc
 # Considerando que las filas tienen informacion en años y las columnas son algunos paises del continenete americano.Desarrolle
 # los siguientes items :
 
+    
 
 # a) Grafique un diagrama de dispersion para cada uno de los
 # paises. Considere los elementos NA como np.nan.
+
+Cabecera=["Argentina","Bolivia","Brazil","Chile","Colombia","Ecuador","Guyana","Peru","Paraguay","Suriname","Uruguay","Venezuela"]
+
+Cabecera[1]
+
+
+
+
+for p in range(0,12):
+    sns.relplot(data=Datos, x="Ano", y=Cabecera[p])
+    
+
+ #, hue="Survived")
+# fig, ax=plt.subplots()
+# ax.scatter(Datos.Ano,Datos.Argentina)
+# plt.show()
+
 # b) Diga usted cual de los paises tiene una mayor varianza en sus
 # datos.
+dir(Datos.Argentina)
+dir(Datos[Cabecera[11]].var())
+Datos['Argentina'].var()
+VAr[11]=float(Datos[Cabecera[11]].var())
+type(Datos[Cabecera[11]].var())
+VAr[1]=Datos.Cabecera[1].var()
+VAr=[]
+maxV=0
+nVar=0
+for a in range(0,12):
+    print(Datos[Cabecera[a]].var())
+    if(Datos[Cabecera[a]].var()>maxV)
+    maxV=Datos[Cabecera[a]].var()
+    
+plt.title('Varianza Vs Paices')
+plt.plot(Cabecera,PromSol)
+plt.grid(color='r', linestyle='dotted', linewidth=1)
+plt.show()  
+
+# 0.9133486300203155
+# 0.25858266867052837
+# 0.28488985061380906
+# 3.9543101878229496
+# 0.5643666078035706
+# 0.18389500076266754
+# 4.025603306173914
+# 2.033163734307432
+# 1.0315939944593835
+# nan
+# 1.4445135777662388
+# 0.38478584480514566
+# "Guyana"
+
+
+
 # c) Para cada año, diga cual pais es el que tiene el mayor valor.
 
+for a in range(0,12):
+    print(Datos[Cabecera[1]].max())
 
+# 3.902203
+# 3.902203
+# 3.902203
+# 3.902203
+# 3.902203
+# 3.902203
+# 3.902203
+# 3.902203
+# 3.902203
+# 3.902203
+# 3.902203
+# 3.902203
+    
+Datos[Cabecera[1]].max()   
 
-
+# =============================================================================
+# Todas tienen el mismo valor maximo 
+# =============================================================================
