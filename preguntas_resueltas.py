@@ -376,18 +376,46 @@ plt.show()
 # para calcular la integral de f(x) usando la regla de Simpson.
 # Pruebe esta funcion para calcular la siguiente integral definida
 
+# =============================================================================
+# ###########Graficando la funcion funci=sp.sin(J)**3
+# =============================================================================
+
+# from matplotlib import pyplot
+# from pylab import *
+# import sympy as sp
+
+# # importar el módulo pyplot
+import matplotlib.pyplot as plt
+import sympy as sp
+# from numpy import np
+# from pylab import *
+
+
+x = list(np.arange(0,sp.pi, 0.05))
+dir(x)
+help(x.size)
+funcionable= for a in np.arange(0,x.count)
+plt.plot(x,sp.sin(x)**3,'-r')
+plt.grid()
+plt.show()
+ 
 
 # Cuyo valor exacto es 2 para los siguientes valores de n =
 # 2, 6, 12, 100, 500.
+import sympy as sp
+
+J=sp.Symbol('J')
+funci=sp.sin(J)**3
+
 
 Y=[2,6,12,100,500]
 a=0
 b=sp.pi
-J=sp.Symbol('J')
 
-funci=sp.sin(J)**3
-h=2
-func=funci.subs(J,a)+funci.subs(J,b)
+h=(b-a)/2
+
+
+subfunc=float(funci.subs(J,a)+funci.subs(J,b))
 
 funcio1=list(range(0,5))
 funcio2=list(range(0,5))
@@ -415,7 +443,7 @@ for p in range(0,5):
 
 IntegFinal=list()
 for s in range(0,5):
-    IntegFinal[s]=4*funcio1[s]+func+2*funcio2[s]
+    IntegFinal[s]=4*funcio1[s]+subfunc+2*funcio2[s]
     print(3*IntegFinal[s]/2)
     
 
